@@ -31,7 +31,12 @@
   }
   ```
 
-4. Примените миграции к базе данных:
+4. Создание миграции:
+  ```sh
+  dotnet ef migrations add Initial
+  ```
+
+5. Примените миграции к базе данных:
   ```sh
   dotnet ef database update
   ```
