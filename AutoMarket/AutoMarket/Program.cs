@@ -19,6 +19,8 @@ if (app.Environment.IsDevelopment())
     // app.ApplyMigrate();
 }
 
+app.UseCors("AllowAllOrigins");
+
 app.UseHttpsRedirection();
 
 app.MapControllerRoute(

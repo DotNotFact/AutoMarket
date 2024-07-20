@@ -70,8 +70,19 @@ public static class PersistenceExtensions
                     },
                     Array.Empty<string>()
                 }
-            }); 
-        }); 
+            });
+        });
+
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAllOrigins", policy =>
+            {
+                policy
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
 
         return services;
     }

@@ -67,10 +67,10 @@ public class CarController(ICarService carService) : ControllerBase
     ///
     /// </remarks>
     [HttpPost("add-maker")]
-    public async Task<ActionResult> AddMaker([FromQuery] CreateMakerRequest request)
+    public async Task<ActionResult> AddMaker(CreateMakerRequest request)
     {
         var createdMaker = await _carService.AddMakerAsync(request);
-        return CreatedAtAction(nameof(GetMakerById), new { id = createdMaker.Id }, request);
+        return NoContent();
     }
 
     /// <summary>
@@ -85,7 +85,7 @@ public class CarController(ICarService carService) : ControllerBase
     ///
     /// </remarks>
     [HttpPut("update-maker")]
-    public async Task<ActionResult> UpdateMaker([FromQuery] UpdateMakerRequest request)
+    public async Task<ActionResult> UpdateMaker(UpdateMakerRequest request)
     {
         await _carService.UpdateMakerAsync(request);
         return NoContent();
@@ -147,7 +147,7 @@ public class CarController(ICarService carService) : ControllerBase
     ///
     /// </remarks>
     [HttpPost("add-model")]
-    public async Task<ActionResult> AddModel([FromQuery] CreateModelRequest request)
+    public async Task<ActionResult> AddModel(CreateModelRequest request)
     {
         var createdModel = await _carService.AddModelAsync(request);
         return CreatedAtAction(nameof(GetModelById), new { id = createdModel.Id });
@@ -165,7 +165,7 @@ public class CarController(ICarService carService) : ControllerBase
     ///
     /// </remarks>
     [HttpPut("update-model")]
-    public async Task<ActionResult> UpdateModel([FromQuery] UpdateModelRequest request)
+    public async Task<ActionResult> UpdateModel(UpdateModelRequest request)
     {
         await _carService.UpdateModelAsync(request);
         return NoContent();
